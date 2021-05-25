@@ -1,20 +1,26 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
 
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 30
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "API_KEY", '"' + RAWG_API_KEY + '"' ?: "Define RAWG API Key Here"
     }
 
     buildTypes {
@@ -33,12 +39,29 @@ android {
 }
 
 dependencies {
+    def coreDependencies = rootProject.ext.coreDependencies
+    def testDependencies = rootProject.ext.testDependencies
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
-    implementation 'androidx.core:core-ktx:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation coreDependencies.filetree
+    implementation coreDependencies.kotlinStdlib
+
+    implementation coreDependencies.roomRuntime
+    kapt coreDependencies.roomCompiler
+    androidTestImplementation testDependencies.roomTesting
+
+    implementation coreDependencies.retrofit
+    implementation coreDependencies.converterGson
+    implementation coreDependencies.loggingInterceptor
+
+    implementation coreDependencies.coroutinesCore
+    implementation coreDependencies.coroutinesAndroid
+    implementation coreDependencies.roomKtx
+    api coreDependencies.lifecycleLivedataKtx
+
+    implementation coreDependencies.daggerHilt
+    implementation coreDependencies.hiltLifecycle
+    kapt coreDependencies.daggerHiltCompiler
+    kapt coreDependencies.hiltCompiler
+
+    testImplementation testDependencies.junit4
 }

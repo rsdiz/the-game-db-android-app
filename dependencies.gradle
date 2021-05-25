@@ -13,6 +13,7 @@ ext {
     androidCompileSdkVersion = 30
 
     //Libraries
+    kotlinVersion = "1.5.10"
     appcompatVersion = "1.3.0"
     coreKtxVersion = "1.5.0"
     constraintVersion = "2.0.4"
@@ -27,6 +28,10 @@ ext {
     logging_interceptor_version = "5.0.0-alpha.2"
     kotlin_coroutines_version = "1.5.0-native-mt"
     lifecycle_version = "2.3.1"
+    hiltVersion = "2.35.1"
+    hiltLifecycleVersion = "1.0.0-alpha03"
+    hiltCompilerVersion = "1.0.0"
+    fragmentVersion = "1.3.4"
 
     //Testing
     junit4Version = "4.13.2"
@@ -34,35 +39,41 @@ ext {
     espressoVersion = "3.3.0"
 
     coreDependencies = [
-            filetree : fileTree(dir: "libs", include: ["*.jar"]),
-            appcompat : "androidx.appcompat:appcompat:$appcompatVersion",
-            coreKtx : "androidx.core:core-ktx:$coreKtxVersion",
-            legacySupportV4 : "androidx.legacy:legacy-support-v4:$legacyV4Version",
-            multidex : "androidx.multidex:multidex:$multidexVersion",
-            roomRuntime : "androidx.room:room-runtime:$room_version",
-            roomCompiler : "androidx.room:room-compiler:$room_version",
-            retrofit : "com.squareup.retrofit2:retrofit:$retrofit_version",
-            converterGson : "com.squareup.retrofit2:converter-gson:$retrofit_version",
-            loggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version",
-            coroutinesCore : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version",
-            coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version",
-            roomKtx : "androidx.room:room-ktx:$room_version",
-            lifecycleLivedataKtx : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+            filetree            : fileTree(dir: "libs", include: ["*.jar"]),
+            kotlinStdlib        : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            appcompat           : "androidx.appcompat:appcompat:$appcompatVersion",
+            coreKtx             : "androidx.core:core-ktx:$coreKtxVersion",
+            legacySupportV4     : "androidx.legacy:legacy-support-v4:$legacyV4Version",
+            multidex            : "androidx.multidex:multidex:$multidexVersion",
+            roomRuntime         : "androidx.room:room-runtime:$room_version",
+            roomCompiler        : "androidx.room:room-compiler:$room_version",
+            retrofit            : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            converterGson       : "com.squareup.retrofit2:converter-gson:$retrofit_version",
+            loggingInterceptor  : "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version",
+            coroutinesCore      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version",
+            coroutinesAndroid   : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version",
+            roomKtx             : "androidx.room:room-ktx:$room_version",
+            lifecycleLivedataKtx: "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            daggerHilt          : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltLifecycle       : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleVersion",
+            daggerHiltCompiler  : "com.google.dagger:hilt-android-compiler:$hiltVersion",
+            hiltCompiler        : "androidx.hilt:hilt-compiler:$hiltCompilerVersion"
     ]
 
     uiDependencies = [
-            constraintLayout : "androidx.constraintlayout:constraintlayout:$constraintVersion",
-            cardview : "androidx.cardview:cardview:$cardviewVersion",
-            recyclerview : "androidx.recyclerview:recyclerview:$recyclerviewVersion",
-            googleMaterial : "com.google.android.material:material:$materialVersion",
-            glide : "com.github.bumptech.glide:glide:$glideVersion"
+            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintVersion",
+            cardview        : "androidx.cardview:cardview:$cardviewVersion",
+            recyclerview    : "androidx.recyclerview:recyclerview:$recyclerviewVersion",
+            googleMaterial  : "com.google.android.material:material:$materialVersion",
+            glide           : "com.github.bumptech.glide:glide:$glideVersion",
+            fragment        : "androidx.fragment:fragment-ktx:$fragmentVersion"
     ]
 
     testDependencies = [
-            junit4 : "junit:junit:$junit4Version",
-            extJunit : "androidx.test.ext:junit:$extJunitVersion",
-            espresso : "androidx.test.espresso:espresso-core:$espressoVersion",
-            roomTesting : "androidx.room:room-testing:$room_version"
+            junit4     : "junit:junit:$junit4Version",
+            extJunit   : "androidx.test.ext:junit:$extJunitVersion",
+            espresso   : "androidx.test.espresso:espresso-core:$espressoVersion",
+            roomTesting: "androidx.room:room-testing:$room_version"
     ]
 
 }
