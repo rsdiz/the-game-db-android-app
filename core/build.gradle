@@ -46,7 +46,7 @@ dependencies {
     implementation coreDependencies.filetree
     implementation coreDependencies.kotlinStdlib
 
-    implementation coreDependencies.roomRuntime
+    api coreDependencies.roomRuntime
     kapt coreDependencies.roomCompiler
     androidTestImplementation testDependencies.roomTesting
 
