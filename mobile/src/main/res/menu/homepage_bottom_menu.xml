@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_game"
+        android:icon="@drawable/ic_video_game"
+        android:title="@string/menu_game" />
+
+    <item android:id="@+id/menu_favorite"
+        android:icon="@drawable/ic_heart_outline"
+        android:title="@string/menu_favorite" />
+
+    <item android:id="@+id/menu_setting"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings" />
+</menu>
