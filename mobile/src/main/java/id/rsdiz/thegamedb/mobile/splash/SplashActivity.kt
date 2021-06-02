@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import id.rsdiz.thegamedb.mobile.databinding.ActivitySplashBinding
+import id.rsdiz.thegamedb.mobile.home.HomepageActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         _splashBinding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intentHomepage = Intent()
+        val intentHomepage = Intent(this, HomepageActivity::class.java)
         lifecycleScope.launch(Dispatchers.IO) {
             delay(TIMEOUT)
             withContext(Dispatchers.Main) {
@@ -31,7 +32,12 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _splashBinding = null
+    }
+
     companion object {
-        private const val TIMEOUT = 3000L
+        private const val TIMEOUT = 2000L
     }
 }
