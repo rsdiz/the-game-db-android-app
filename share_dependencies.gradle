@@ -1,0 +1,23 @@
+dependencies {
+    implementation coreDependencies.filetree
+    implementation coreDependencies.kotlinStdlib
+
+    // Retrofit
+    implementation coreDependencies.retrofit
+    implementation coreDependencies.converterGson
+    implementation coreDependencies.loggingInterceptor
+
+    // Coroutine Flow
+    implementation coreDependencies.coroutinesCore
+    implementation coreDependencies.coroutinesAndroid
+    implementation coreDependencies.roomKtx
+    implementation coreDependencies.lifecycleLivedataKtx
+
+    // Dagger Hilt
+    implementation coreDependencies.daggerHilt
+    implementation coreDependencies.hiltLifecycle
+    kapt coreDependencies.daggerHiltCompiler
+    kapt coreDependencies.hiltCompiler
+
+    testImplementation testDependencies.junit4
+}
