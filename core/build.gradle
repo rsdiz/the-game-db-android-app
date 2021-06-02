@@ -6,15 +6,15 @@ plugins {
     id 'kotlin-parcelize'
 }
 
-android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
+apply from: '../share_dependencies.gradle'
 
-    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
-    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion globalConfiguration["androidMinSdkVersion"]
-        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -40,29 +40,7 @@ android {
 }
 
 dependencies {
-    def coreDependencies = rootProject.ext.coreDependencies
-    def testDependencies = rootProject.ext.testDependencies
-
-    implementation coreDependencies.filetree
-    implementation coreDependencies.kotlinStdlib
-
     api coreDependencies.roomRuntime
     kapt coreDependencies.roomCompiler
     androidTestImplementation testDependencies.roomTesting
-
-    implementation coreDependencies.retrofit
-    implementation coreDependencies.converterGson
-    implementation coreDependencies.loggingInterceptor
-
-    implementation coreDependencies.coroutinesCore
-    implementation coreDependencies.coroutinesAndroid
-    implementation coreDependencies.roomKtx
-    api coreDependencies.lifecycleLivedataKtx
-
-    implementation coreDependencies.daggerHilt
-    implementation coreDependencies.hiltLifecycle
-    kapt coreDependencies.daggerHiltCompiler
-    kapt coreDependencies.hiltCompiler
-
-    testImplementation testDependencies.junit4
 }
