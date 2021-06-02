@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import dagger.hilt.android.AndroidEntryPoint
 import id.rsdiz.thegamedb.mobile.R
 import id.rsdiz.thegamedb.mobile.databinding.ActivityHomepageBinding
 
+@AndroidEntryPoint
 class HomepageActivity : AppCompatActivity() {
     private var _homepageBinding: ActivityHomepageBinding? = null
     private val binding get() = _homepageBinding as ActivityHomepageBinding
