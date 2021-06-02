@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    api coreDependencies.lifecycleCommon
+
     api coreDependencies.roomRuntime
     kapt coreDependencies.roomCompiler
     androidTestImplementation testDependencies.roomTesting
