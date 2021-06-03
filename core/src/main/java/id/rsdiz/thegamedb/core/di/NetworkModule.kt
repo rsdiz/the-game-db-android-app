@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import id.rsdiz.thegamedb.core.data.source.remote.network.ApiService
 import id.rsdiz.thegamedb.core.utils.Const
+import id.rsdiz.thegamedb.core.utils.ParameterInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,6 +20,7 @@ class NetworkModule {
     fun provideOkHttpClient() =
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(ParameterInterceptor(Const.RAWG_API_KEY))
             .connectTimeout(Const.TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(Const.TIMEOUT, TimeUnit.SECONDS)
             .build()
