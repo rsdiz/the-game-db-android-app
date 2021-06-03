@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ParentPlatformsResponse(
     @field:SerializedName("platform")
-    val platform: List<PlatformResponse>
+    val platform: PlatformResponse
 )

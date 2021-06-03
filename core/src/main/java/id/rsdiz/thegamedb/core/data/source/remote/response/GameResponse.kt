@@ -20,9 +20,9 @@ data class GameResponse(
     @field:SerializedName("playtime")
     val playtime: Int,
     @field:SerializedName("parent_platforms")
-    val parentPlatforms: ParentPlatformsResponse,
+    val parentPlatforms: List<ParentPlatformsResponse>,
     @field:SerializedName("platforms")
-    val platforms: PlatformsResponse,
+    val platforms: List<PlatformsResponse>,
     @field:SerializedName("developers")
     val developers: List<DevelopersResponse>,
     @field:SerializedName("genres")

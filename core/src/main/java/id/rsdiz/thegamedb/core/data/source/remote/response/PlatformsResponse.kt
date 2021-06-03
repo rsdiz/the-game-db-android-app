@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class PlatformsResponse(
     @field:SerializedName("platform")
-    val platform: List<PlatformResponse>
+    val platform: PlatformResponse
 )
 
 data class PlatformResponse(
