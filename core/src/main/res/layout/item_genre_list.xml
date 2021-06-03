@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/genre_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_padding_size_micro"
+    android:background="@color/magic_mint"
+    android:fontFamily="@font/montserrat"
+    android:paddingHorizontal="@dimen/margin_padding_size_small"
+    android:paddingVertical="@dimen/margin_padding_size_micro"
+    android:textColor="@color/san_juan"
+    android:textSize="@dimen/text_size_small"
+    android:textStyle="bold"
+    tools:text="Genre" />
