@@ -2,22 +2,17 @@
     <!-- Base application theme. -->
     <style name="Theme.TheGameDB" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/wedge_wood</item>
+        <item name="colorPrimary">@color/ziggurat</item>
         <item name="colorPrimaryVariant">@color/san_juan</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/cranberry</item>
-        <item name="colorSecondaryVariant">@color/portica</item>
+        <item name="colorSecondaryVariant">@color/cranberry</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="colorSearchBar">@color/concrete</item>
-    </style>
-
-    <!--  No Action Bar Theme  -->
-    <style name="Theme.TheGameDB.NoActionBar" parent="Theme.TheGameDB">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="colorSearchBar">@color/tundora</item>
+        <item name="colorDefaultText">@color/white</item>
     </style>
 </resources>
