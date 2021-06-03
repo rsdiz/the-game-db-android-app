@@ -11,7 +11,7 @@ object DataMapper {
         listResponses.map {
             val parentPlatforms = getParentPlatformsName(it.parentPlatforms)
             val genres = getGenresName(it.genres)
-            val platforms = getPlatformsName(it.platforms.platform)
+            val platforms = getPlatformsName(it.platforms)
             val developers = getDevelopersName(it.developers)
 
             val game = GameEntity(
@@ -91,7 +91,7 @@ object DataMapper {
     fun mapResponseToEntity(response: GameResponse): GameEntity {
         val parentPlatforms = getParentPlatformsName(response.parentPlatforms)
         val genres = getGenresName(response.genres)
-        val platforms = getPlatformsName(response.platforms.platform)
+        val platforms = getPlatformsName(response.platforms)
         val developers = getDevelopersName(response.developers)
 
         return GameEntity(
@@ -111,13 +111,13 @@ object DataMapper {
         )
     }
 
-    private fun getParentPlatformsName(data: ParentPlatformsResponse?): String {
+    private fun getParentPlatformsName(data: List<ParentPlatformsResponse>?): String {
         val result = StringBuilder().append("")
 
         data?.let {
-            for (i in it.platform.indices)
-                if (i < it.platform.size - 1) result.append("${it.platform[i].name}, ")
-                else result.append(it.platform[i].name)
+            for (i in it.indices)
+                if (i < it.size - 1) result.append("${it[i].platform.name},")
+                else result.append(it[i].platform.name)
         }
 
         return result.toString()
@@ -128,20 +128,20 @@ object DataMapper {
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].name}, ")
+                if (i < it.size - 1) result.append("${it[i].name},")
                 else result.append(it[i].name)
         }
 
         return result.toString()
     }
 
-    private fun getPlatformsName(data: List<PlatformResponse>?): String {
+    private fun getPlatformsName(data: List<PlatformsResponse>?): String {
         val result = StringBuilder().append("")
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].name}, ")
-                else result.append(it[i].name)
+                if (i < it.size - 1) result.append("${it[i].platform.name},")
+                else result.append(it[i].platform.name)
         }
 
         return result.toString()
@@ -152,7 +152,7 @@ object DataMapper {
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].name}, ")
+                if (i < it.size - 1) result.append("${it[i].name},")
                 else result.append(it[i].name)
         }
 
