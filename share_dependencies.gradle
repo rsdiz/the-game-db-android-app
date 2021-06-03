@@ -19,5 +19,12 @@ dependencies {
     kapt coreDependencies.daggerHiltCompiler
     kapt coreDependencies.hiltCompiler
 
+    // UI
+    implementation uiDependencies.constraintLayout
+    implementation uiDependencies.cardview
+    implementation uiDependencies.recyclerview
+    implementation uiDependencies.googleMaterial
+    implementation uiDependencies.glide
+
     testImplementation testDependencies.junit4
 }

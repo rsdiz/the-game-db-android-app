@@ -41,11 +41,6 @@ android {
 dependencies {
     implementation project(":core")
 
-    implementation uiDependencies.constraintLayout
-    implementation uiDependencies.cardview
-    implementation uiDependencies.recyclerview
-    implementation uiDependencies.googleMaterial
-    implementation uiDependencies.glide
     implementation uiDependencies.fragment
 
     implementation uiDependencies.navFragment
