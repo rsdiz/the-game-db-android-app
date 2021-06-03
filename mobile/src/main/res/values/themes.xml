@@ -12,12 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="colorSearchBar">@color/concrete</item>
     </style>
 
     <!--  No Action Bar Theme  -->
-    <style name="Theme.TheGameDB.NoActionBar">
+    <style name="Theme.TheGameDB.NoActionBar" parent="Theme.TheGameDB">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:colorForeground">@color/white</item>
     </style>
 </resources>
