@@ -18,10 +18,11 @@ import id.rsdiz.thegamedb.core.domain.model.Game
 import id.rsdiz.thegamedb.core.ui.GameAdapter
 import id.rsdiz.thegamedb.core.utils.autoCleared
 import id.rsdiz.thegamedb.mobile.databinding.GameFragmentBinding
+import id.rsdiz.thegamedb.mobile.home.IOnBackPressed
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class GameFragment : Fragment() {
+class GameFragment : Fragment(), IOnBackPressed {
     private var _gameBinding: GameFragmentBinding by autoCleared()
     private val binding get() = _gameBinding
 
@@ -51,6 +52,7 @@ class GameFragment : Fragment() {
 
         with(binding.searchGame) {
             val searchManager = context.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+            setIconifiedByDefault(false)
             setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -74,6 +76,18 @@ class GameFragment : Fragment() {
                 onActionViewCollapsed()
                 observeGames(gameViewModel.games)
                 true
+            }
+        }
+    }
+
+    override fun onBackPressed(): Boolean {
+        with(binding) {
+            return if (searchGame.query.isNotEmpty()) {
+                searchGame.setQuery("", false)
+                searchGame.clearFocus()
+                true
+            } else {
+                false
             }
         }
     }
