@@ -10,6 +10,9 @@ import com.bumptech.glide.request.RequestOptions
 import id.rsdiz.thegamedb.core.R
 import id.rsdiz.thegamedb.core.databinding.ItemGameListBinding
 import id.rsdiz.thegamedb.core.domain.model.Game
+import id.rsdiz.thegamedb.core.utils.FormatPattern
+import id.rsdiz.thegamedb.core.utils.format
+import id.rsdiz.thegamedb.core.utils.toDate
 
 class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     private var games: MutableList<Game> = mutableListOf()
@@ -41,10 +44,14 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
         fun bind(game: Game) {
             with(binding) {
                 gameTitle.text = game.name
-                gameReleaseDate.text =
-                    StringBuilder(root.context.getString(R.string.release_date)).append(
-                        game.released
-                    )
+                game.released?.let {
+                    val date = it.toDate(FormatPattern.ISO_DATE)
+                    val dateLocal = date?.format(FormatPattern.LOCAL_DATE)
+                    gameReleaseDate.text =
+                        StringBuilder(root.context.getString(R.string.release_date)).append(
+                            dateLocal
+                        )
+                }
                 game.backgroundImage?.let {
                     Glide.with(root.context)
                         .load(Uri.parse(it))
