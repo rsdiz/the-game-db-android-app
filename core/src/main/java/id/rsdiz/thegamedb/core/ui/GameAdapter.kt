@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import id.rsdiz.thegamedb.core.R
 import id.rsdiz.thegamedb.core.databinding.ItemGameListBinding
 import id.rsdiz.thegamedb.core.domain.model.Game
@@ -44,10 +45,14 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
                     StringBuilder(root.context.getString(R.string.release_date)).append(
                         game.released
                     )
-                Glide.with(root.context)
-                    .load(Uri.parse(game.backgroundImage))
-                    .centerCrop()
-                    .into(gameImage)
+                game.backgroundImage?.let {
+                    Glide.with(root.context)
+                        .load(Uri.parse(it))
+                        .apply(RequestOptions.placeholderOf(R.drawable.bg_image_loading))
+                        .error(R.drawable.bg_image_error)
+                        .centerCrop()
+                        .into(gameImage)
+                }
                 bindGenre(game.genres.split(',').toTypedArray())
                 bindPlatforms(game.parentPlatforms.split(',').toTypedArray())
             }
