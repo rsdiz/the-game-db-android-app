@@ -10,7 +10,7 @@ data class GameResponse(
     @field:SerializedName("description_raw")
     val description: String?,
     @field:SerializedName("released")
-    val released: String,
+    val released: String?,
     @field:SerializedName("background_image")
     val backgroundImage: String?,
     @field:SerializedName("website")

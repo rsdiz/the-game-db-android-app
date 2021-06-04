@@ -14,7 +14,7 @@ data class GameEntity(
     val rating: Float,
     val parentPlatforms: String,
     val genres: String,
-    val released: String,
+    val released: String?,
     val websiteUrl: String,
     val playtime: Int,
     val platforms: String,
