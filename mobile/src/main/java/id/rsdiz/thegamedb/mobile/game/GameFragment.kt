@@ -1,17 +1,24 @@
 package id.rsdiz.thegamedb.mobile.game
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import id.rsdiz.thegamedb.core.data.Resource
+import id.rsdiz.thegamedb.core.domain.model.Game
 import id.rsdiz.thegamedb.core.ui.GameAdapter
 import id.rsdiz.thegamedb.core.utils.autoCleared
 import id.rsdiz.thegamedb.mobile.databinding.GameFragmentBinding
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class GameFragment : Fragment() {
@@ -19,6 +26,8 @@ class GameFragment : Fragment() {
     private val binding get() = _gameBinding
 
     private val gameViewModel: GameViewModel by viewModels()
+
+    private val gameAdapter = GameAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,9 +41,45 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val gameAdapter = GameAdapter()
+        observeGames(gameViewModel.games)
 
-        gameViewModel.games.observe(viewLifecycleOwner) { resource ->
+        with(binding.rvGame) {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            setHasFixedSize(true)
+            adapter = gameAdapter
+        }
+
+        with(binding.searchGame) {
+            val searchManager = context.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+            setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    showLoading(true)
+
+                    observeGames(gameViewModel.searchResult)
+
+                    query?.let {
+                        lifecycleScope.launch {
+                            gameViewModel.searchGames(it)
+                        }
+                    }
+
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean = false
+            })
+
+            setOnCloseListener {
+                onActionViewCollapsed()
+                observeGames(gameViewModel.games)
+                true
+            }
+        }
+    }
+
+    private fun observeGames(livedata: LiveData<Resource<List<Game>>>) {
+        livedata.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> showLoading(true)
                 is Resource.Error -> {
@@ -51,12 +96,6 @@ class GameFragment : Fragment() {
                     }
                 }
             }
-        }
-
-        with(binding.rvGame) {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            setHasFixedSize(true)
-            adapter = gameAdapter
         }
     }
 
