@@ -13,12 +13,15 @@ class HomepageActivity : AppCompatActivity() {
     private var _homepageBinding: ActivityHomepageBinding? = null
     private val binding get() = _homepageBinding as ActivityHomepageBinding
 
+    private var _navHostFragment: NavHostFragment? = null
+    private val navHostFragment get() = _navHostFragment as NavHostFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _homepageBinding = ActivityHomepageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_homepage)
+        _navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_homepage)
             as NavHostFragment
         NavigationUI.setupWithNavController(
             binding.bottomNav,
@@ -26,8 +29,16 @@ class HomepageActivity : AppCompatActivity() {
         )
     }
 
+    override fun onBackPressed() {
+        val fragment = navHostFragment.childFragmentManager.fragments[0]
+        (fragment as? IOnBackPressed)?.onBackPressed()?.not().let {
+            if (it == true) super.onBackPressed()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _homepageBinding = null
+        _navHostFragment = null
     }
 }
