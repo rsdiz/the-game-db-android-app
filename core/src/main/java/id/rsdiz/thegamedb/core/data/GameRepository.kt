@@ -97,9 +97,7 @@ class GameRepository @Inject constructor(
             is ApiResponse.Empty -> {
                 Resource.Error(response.toString(), null)
             }
-            is ApiResponse.Error -> {
-                Resource.Error(response.errorMessage, null)
-            }
+            else -> Resource.Error((response as ApiResponse.Error).errorMessage, null)
         }
 
     override suspend fun insertGame(game: Game) =
