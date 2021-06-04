@@ -50,6 +50,17 @@ class GameFragment : Fragment(), IOnBackPressed {
             adapter = gameAdapter
         }
 
+        binding.scrollLayout.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+            if (scrollY > oldScrollY + 12) binding.fabToTop.hide()
+            if (scrollY < oldScrollY - 12) binding.fabToTop.show()
+            if (scrollY == 0) binding.fabToTop.hide()
+        }
+
+        binding.fabToTop.setOnClickListener {
+            val positionY = binding.rvGame.getChildAt(0).y
+            binding.scrollLayout.smoothScrollTo(0, positionY.toInt(), 1000)
+        }
+
         with(binding.searchGame) {
             val searchManager = context.getSystemService(Context.SEARCH_SERVICE) as SearchManager
             setIconifiedByDefault(false)
@@ -117,12 +128,14 @@ class GameFragment : Fragment(), IOnBackPressed {
         with(binding) {
             if (state) {
                 progressBar.visibility = View.VISIBLE
+                fabToTop.visibility = View.GONE
                 labelError.visibility = View.GONE
                 rvGame.visibility = View.GONE
             } else {
                 progressBar.visibility = View.GONE
                 labelError.visibility = View.GONE
                 rvGame.visibility = View.VISIBLE
+                fabToTop.visibility = View.VISIBLE
             }
         }
 }
