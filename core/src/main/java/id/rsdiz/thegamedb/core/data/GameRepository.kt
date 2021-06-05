@@ -102,6 +102,6 @@ class GameRepository @Inject constructor(
 
     override suspend fun insertGame(game: Game) =
         DataMapper.mapDomainToEntity(game).let { entity ->
-            appExecutors.diskIO().execute { localDataSource.updateGame(entity) }
+            localDataSource.insertGame(entity)
         }
 }
