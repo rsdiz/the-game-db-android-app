@@ -116,7 +116,7 @@ object DataMapper {
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].platform.name},")
+                if (i < it.size - 1) result.append("${it[i].platform.name}, ")
                 else result.append(it[i].platform.name)
         }
 
@@ -128,7 +128,7 @@ object DataMapper {
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].name},")
+                if (i < it.size - 1) result.append("${it[i].name}, ")
                 else result.append(it[i].name)
         }
 
@@ -140,7 +140,7 @@ object DataMapper {
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].platform.name},")
+                if (i < it.size - 1) result.append("${it[i].platform.name}, ")
                 else result.append(it[i].platform.name)
         }
 
@@ -152,7 +152,7 @@ object DataMapper {
 
         data?.let {
             for (i in it.indices)
-                if (i < it.size - 1) result.append("${it[i].name},")
+                if (i < it.size - 1) result.append("${it[i].name}, ")
                 else result.append(it[i].name)
         }
 
