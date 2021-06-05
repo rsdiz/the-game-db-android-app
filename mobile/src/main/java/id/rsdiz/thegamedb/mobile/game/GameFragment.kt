@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import id.rsdiz.thegamedb.core.data.Resource
@@ -30,6 +31,8 @@ class GameFragment : Fragment(), IOnBackPressed {
 
     private val gameAdapter = GameAdapter()
 
+    private var isSearching = false
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,6 +46,16 @@ class GameFragment : Fragment(), IOnBackPressed {
         super.onViewCreated(view, savedInstanceState)
 
         observeGames(gameViewModel.games)
+
+        gameAdapter.setOnItemClickListener {
+            if (isSearching) {
+                lifecycleScope.launch {
+                    gameViewModel.insertGame(it)
+                }
+            }
+            val directions = GameFragmentDirections.navigateToDetailActivity(it.id)
+            findNavController().navigate(directions)
+        }
 
         with(binding.rvGame) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -73,6 +86,7 @@ class GameFragment : Fragment(), IOnBackPressed {
 
                     query?.let {
                         lifecycleScope.launch {
+                            isSearching = true
                             gameViewModel.searchGames(it)
                         }
                     }
@@ -86,6 +100,7 @@ class GameFragment : Fragment(), IOnBackPressed {
             setOnCloseListener {
                 onActionViewCollapsed()
                 observeGames(gameViewModel.games)
+                isSearching = false
                 true
             }
         }
@@ -93,12 +108,18 @@ class GameFragment : Fragment(), IOnBackPressed {
 
     override fun onBackPressed(): Boolean {
         with(binding) {
-            return if (searchGame.query.isNotEmpty()) {
-                searchGame.setQuery("", false)
-                searchGame.clearFocus()
-                true
-            } else {
-                false
+            return when {
+                searchGame.query.isNotEmpty() -> {
+                    searchGame.setQuery("", false)
+                    searchGame.clearFocus()
+                    true
+                }
+                isSearching -> {
+                    observeGames(gameViewModel.games)
+                    isSearching = false
+                    true
+                }
+                else -> false
             }
         }
     }
