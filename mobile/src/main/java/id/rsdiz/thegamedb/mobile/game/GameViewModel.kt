@@ -20,4 +20,6 @@ class GameViewModel @Inject constructor(private val gameUseCase: GameUseCase) : 
     suspend fun searchGames(query: String) {
         _searchResult.value = gameUseCase.searchGame(query)
     }
+
+    suspend fun insertGame(game: Game) = gameUseCase.insertGame(game)
 }
