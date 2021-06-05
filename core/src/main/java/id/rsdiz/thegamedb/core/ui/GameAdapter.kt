@@ -16,6 +16,7 @@ import id.rsdiz.thegamedb.core.utils.toDate
 
 class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     private var games: MutableList<Game> = mutableListOf()
+    private var onItemClick: ((Game) -> Unit)? = null
 
     fun setGames(games: List<Game>) {
         with(this.games) {
@@ -23,6 +24,10 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
             addAll(games)
         }
         notifyDataSetChanged()
+    }
+
+    fun setOnItemClickListener(listener: ((Game) -> Unit)) {
+        onItemClick = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameAdapter.ViewHolder =
@@ -48,9 +53,7 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
                     val date = it.toDate(FormatPattern.ISO_DATE)
                     val dateLocal = date?.format(FormatPattern.LOCAL_DATE)
                     gameReleaseDate.text =
-                        StringBuilder(root.context.getString(R.string.release_date)).append(
-                            dateLocal
-                        )
+                        root.context.getString(R.string.release_date_value, dateLocal)
                 }
                 game.backgroundImage?.let {
                     Glide.with(root.context)
@@ -82,6 +85,12 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 setHasFixedSize(true)
                 adapter = platformAdapter
+            }
+        }
+
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(games[bindingAdapterPosition])
             }
         }
     }
