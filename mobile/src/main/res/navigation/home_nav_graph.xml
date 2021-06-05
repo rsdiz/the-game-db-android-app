@@ -9,5 +9,20 @@
         android:id="@+id/gameFragment"
         android:name="id.rsdiz.thegamedb.mobile.game.GameFragment"
         android:label="game_fragment"
-        tools:layout="@layout/game_fragment" />
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/navigate_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="id.rsdiz.thegamedb.mobile.detail.DetailActivity"
+        android:label="activity_detail"
+        tools:layout="@layout/activity_detail" >
+        <argument
+            android:name="gameId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </activity>
 </navigation>
