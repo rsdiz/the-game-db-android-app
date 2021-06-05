@@ -12,13 +12,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheGameDB">
-        <activity
-            android:name=".home.HomepageActivity"
-            android:theme="@style/Theme.TheGameDB.NoActionBar" />
-        <activity
-            android:name=".splash.SplashActivity"
-            android:theme="@style/Theme.TheGameDB.NoActionBar">
+        android:theme="@style/Theme.TheGameDB.NoActionBar">
+        <activity android:name=".detail.DetailActivity" />
+        <activity android:name=".home.HomepageActivity" />
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
