@@ -6,6 +6,19 @@
     <string name="intro_homepage">Find your favorite video game here right now!</string>
     <string name="search_query_hint">Search games</string>
     <string name="available_on">Available on:</string>
-    <string name="release_date">"Release Date: "</string>
+    <string name="release_date">"Release Date"</string>
+    <string name="release_date_value">"Release Date: %1$s"</string>
     <string name="up">Up</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="remove_from_favorite">Remove from favorite</string>
+    <string name="average_playtime">Average Playtime: %1$d Hours</string>
+    <string name="about">About</string>
+    <string name="platforms">Platforms</string>
+    <string name="other_information">Other Information</string>
+    <string name="semicolon">:</string>
+    <string name="rating">Rating</string>
+    <string name="rating_value">( %1$s )</string>
+    <string name="developers">Developers</string>
+    <string name="visit_official_website">Visit Official Website</string>
+    <string name="not_yet_available">Not Yet Available</string>
 </resources>
