@@ -79,7 +79,7 @@ class DetailActivity : AppCompatActivity() {
                     .centerCrop()
                     .into(gameImage)
             }
-            populateParentPlatforms(game.parentPlatforms.split(',').toTypedArray())
+            populateParentPlatforms(game.parentPlatforms.split(", ").toTypedArray())
             gameAveragePlaytime.text =
                 getString(R.string.average_playtime, game.playtime)
             gameDescription.text = game.description

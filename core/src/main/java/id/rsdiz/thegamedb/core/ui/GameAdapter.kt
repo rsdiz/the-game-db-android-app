@@ -63,8 +63,8 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
                         .centerCrop()
                         .into(gameImage)
                 }
-                bindGenre(game.genres.split(',').toTypedArray())
-                bindPlatforms(game.parentPlatforms.split(',').toTypedArray())
+                bindGenre(game.genres.split(", ").toTypedArray())
+                bindPlatforms(game.parentPlatforms.split(", ").toTypedArray())
             }
         }
 
