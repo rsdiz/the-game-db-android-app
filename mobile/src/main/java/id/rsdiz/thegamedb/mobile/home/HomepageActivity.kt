@@ -31,9 +31,11 @@ class HomepageActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val fragment = navHostFragment.childFragmentManager.fragments[0]
-        (fragment as? IOnBackPressed)?.onBackPressed()?.not().let {
-            if (it == true) super.onBackPressed()
-        }
+        if (fragment is IOnBackPressed) {
+            (fragment as? IOnBackPressed)?.onBackPressed()?.not().let {
+                if (it == true) super.onBackPressed()
+            }
+        } else super.onBackPressed()
     }
 
     override fun onDestroy() {
