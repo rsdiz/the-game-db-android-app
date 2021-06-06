@@ -2,3 +2,4 @@ rootProject.name = "The Game DB"
 include ':core'
 include ':mobile'
 include ':favorite'
+include ':developer'
