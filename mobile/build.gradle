@@ -49,6 +49,8 @@ dependencies {
     implementation uiDependencies.navUi
     implementation uiDependencies.navFragmentDynamic
 
+    implementation coreDependencies.googlePlayCore
+
     androidTestImplementation testDependencies.extJunit
     androidTestImplementation testDependencies.espresso
 }
