@@ -8,9 +8,9 @@
         android:name=".App"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_thegamedb"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_thegamedb_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheGameDB.NoActionBar">
         <activity android:name=".detail.DetailActivity" />
