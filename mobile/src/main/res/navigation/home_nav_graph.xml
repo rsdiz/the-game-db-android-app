@@ -3,20 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_nav_graph.xml"
-    app:startDestination="@id/gameFragment">
+    app:startDestination="@id/game_fragment">
 
     <fragment
-        android:id="@+id/gameFragment"
+        android:id="@+id/game_fragment"
         android:name="id.rsdiz.thegamedb.mobile.game.GameFragment"
         android:label="game_fragment"
         tools:layout="@layout/game_fragment" >
         <action
             android:id="@+id/navigate_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            app:destination="@id/detail_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favorite_fragment"
+        android:name="id.rsdiz.thegamedb.mobile.favorite.FavoriteFragment"
+        app:moduleName="The_Game_DB.favorite"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/navigate_to_detailActivity"
+            app:destination="@id/detail_activity" />
     </fragment>
 
     <activity
-        android:id="@+id/detailActivity"
+        android:id="@+id/detail_activity"
         android:name="id.rsdiz.thegamedb.mobile.detail.DetailActivity"
         android:label="activity_detail"
         tools:layout="@layout/activity_detail" >
