@@ -9,7 +9,7 @@ import id.rsdiz.thegamedb.core.domain.usecase.IGameUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class AppModule {
+abstract class MobileModule {
     @Binds
     abstract fun provideGameUseCase(gameRepository: GameUseCase): IGameUseCase
 }
