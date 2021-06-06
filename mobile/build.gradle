@@ -15,6 +15,7 @@ android {
     defaultConfig {
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
+        applicationId "id.rsdiz.thegamedb.mobile"
         versionCode 1
         versionName "1.0"
 
