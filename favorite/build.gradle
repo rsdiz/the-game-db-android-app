@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        applicationId "id.rsdiz.thegamedb.mobile"
+        applicationId "id.rsdiz.thegamedb.mobile.favorite"
         versionCode 1
         versionName "1.0"
 
@@ -28,30 +28,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
     buildFeatures {
         viewBinding = true
     }
-    dynamicFeatures = [':favorite']
 }
 
 dependencies {
     implementation project(":core")
-
-    implementation uiDependencies.fragment
+    implementation project(":mobile")
+    
+    api uiDependencies.fragment
+    api coreDependencies.lifecycleLivedataKtx
 
     implementation uiDependencies.navFragment
     implementation uiDependencies.navUi
     implementation uiDependencies.navFragmentDynamic
-
-    implementation coreDependencies.googlePlayCore
-
-    androidTestImplementation testDependencies.extJunit
-    androidTestImplementation testDependencies.espresso
 }
