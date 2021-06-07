@@ -11,6 +11,10 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      # Then get permission to use Gradle
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       # The next step will run the unit tests
       - run:
           name: Run Tests
