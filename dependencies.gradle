@@ -34,6 +34,10 @@ ext {
     fragmentVersion = "1.3.4"
     navVersion = "2.3.5"
     googlePlayCore = "1.10.0"
+    leakCanaryVersion = "2.6"
+    securityCrypto = "1.1.0-alpha03"
+    zeteticSqlChiperVersion = "4.4.0"
+    sqliteKtxVersion = "2.1.0"
 
     //Testing
     junit4Version = "4.13.2"
@@ -60,7 +64,10 @@ ext {
             hiltLifecycle       : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleVersion",
             daggerHiltCompiler  : "com.google.dagger:hilt-android-compiler:$hiltVersion",
             hiltCompiler        : "androidx.hilt:hilt-compiler:$hiltCompilerVersion",
-            googlePlayCore      : "com.google.android.play:core:$googlePlayCore"
+            googlePlayCore      : "com.google.android.play:core:$googlePlayCore",
+            securityCrypto      : "androidx.security:security-crypto:$securityCrypto",
+            zeteticSqlChiper    : "net.zetetic:android-database-sqlcipher:$zeteticSqlChiperVersion",
+            sqliteKtx           : "androidx.sqlite:sqlite-ktx:$sqliteKtxVersion"
     ]
 
     uiDependencies = [
@@ -82,6 +89,10 @@ ext {
             extJunit   : "androidx.test.ext:junit:$extJunitVersion",
             espresso   : "androidx.test.espresso:espresso-core:$espressoVersion",
             roomTesting: "androidx.room:room-testing:$room_version"
+    ]
+
+    debugDependencies = [
+            leakCanary: "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     ]
 
 }

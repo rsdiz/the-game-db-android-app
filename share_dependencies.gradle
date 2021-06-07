@@ -26,5 +26,11 @@ dependencies {
     implementation uiDependencies.googleMaterial
     implementation uiDependencies.glide
 
+    // Security
+    implementation coreDependencies.zeteticSqlChiper
+    implementation coreDependencies.sqliteKtx
+
     testImplementation testDependencies.junit4
+
+    debugImplementation debugDependencies.leakCanary
 }
