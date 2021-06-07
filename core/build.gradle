@@ -22,6 +22,11 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
         buildConfigField "String", "API_KEY", '"' + RAWG_API_KEY + '"' ?: "Define RAWG API Key Here"
+
+        buildConfigField "String", "PIN_SSL_1", '"sha256/UGwY2lttaRoHnGd1gpeydmov1LzioQpzYTywtNSJkAU="'
+        buildConfigField "String", "PIN_SSL_2", '"sha256/hS5jJ4P+iQUErBkvoWBQOd1T7VOAYlOVegvv1iMzpxA="'
+        buildConfigField "String", "PIN_SSL_3", '"sha256/R+V29DqDnO269dFhAAB5jMlZHepWpDGuoejXJjprh7A="'
+        buildConfigField "String", "PIN_SSL_4", '"sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4="'
     }
 
     buildTypes {
