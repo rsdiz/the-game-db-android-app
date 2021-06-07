@@ -130,6 +130,7 @@ class GameFragment : Fragment(), IOnBackPressed {
                 is Resource.Loading -> showLoading(true)
                 is Resource.Error -> {
                     showLoading(false)
+                    binding.fabToTop.visibility = View.GONE
                     binding.labelError.apply {
                         visibility = View.VISIBLE
                         text = resource.message
