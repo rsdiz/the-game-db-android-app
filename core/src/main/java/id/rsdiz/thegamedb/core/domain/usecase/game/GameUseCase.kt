@@ -1,4 +1,4 @@
-package id.rsdiz.thegamedb.core.domain.usecase
+package id.rsdiz.thegamedb.core.domain.usecase.game
 
 import id.rsdiz.thegamedb.core.domain.model.Game
 import id.rsdiz.thegamedb.core.domain.repository.IGameRepository
@@ -13,9 +13,8 @@ class GameUseCase @Inject constructor(private val repository: IGameRepository) :
 
     override fun setFavoriteGame(game: Game) = repository.setFavoriteGame(game)
 
-    override fun getAllDevelopers() = repository.getAllDevelopers()
-
-    override fun getGamesByDeveloper(developer: String) = repository.getGamesByDeveloper(developer)
+    override suspend fun getGamesByDeveloper(developer: String) =
+        repository.getGamesByDeveloper(developer)
 
     override suspend fun searchGame(query: String) = repository.searchGame(query)
 

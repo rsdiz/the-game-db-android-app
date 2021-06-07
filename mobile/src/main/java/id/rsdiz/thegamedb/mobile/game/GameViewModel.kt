@@ -7,7 +7,7 @@ import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.rsdiz.thegamedb.core.data.Resource
 import id.rsdiz.thegamedb.core.domain.model.Game
-import id.rsdiz.thegamedb.core.domain.usecase.GameUseCase
+import id.rsdiz.thegamedb.core.domain.usecase.game.GameUseCase
 import javax.inject.Inject
 
 @HiltViewModel

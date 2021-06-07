@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import id.rsdiz.thegamedb.core.domain.usecase.GameUseCase
-import id.rsdiz.thegamedb.core.domain.usecase.IGameUseCase
+import id.rsdiz.thegamedb.core.domain.usecase.game.GameUseCase
+import id.rsdiz.thegamedb.core.domain.usecase.game.IGameUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)

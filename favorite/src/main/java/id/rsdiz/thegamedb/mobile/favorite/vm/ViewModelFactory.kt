@@ -2,7 +2,7 @@ package id.rsdiz.thegamedb.mobile.favorite.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import id.rsdiz.thegamedb.core.domain.usecase.GameUseCase
+import id.rsdiz.thegamedb.core.domain.usecase.game.GameUseCase
 import javax.inject.Inject
 
 @Suppress("UNCHECKED_CAST")
