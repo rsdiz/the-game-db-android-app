@@ -1,5 +1,6 @@
 package id.rsdiz.thegamedb.core.data.source.remote
 
+import id.rsdiz.thegamedb.core.data.source.remote.mapper.GameRemoteMapper
 import id.rsdiz.thegamedb.core.data.source.remote.network.ApiResponse
 import id.rsdiz.thegamedb.core.data.source.remote.network.ApiService
 import kotlinx.coroutines.Dispatchers
@@ -9,8 +10,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
-
+class GameRemoteDataSource @Inject constructor(
+    private val apiService: ApiService,
+    val mapper: GameRemoteMapper
+) {
     suspend fun getListGames() =
         flow {
             try {
