@@ -46,7 +46,7 @@ class DevelopersAdapter : RecyclerView.Adapter<DevelopersAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemDeveloperListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(developers: Developers) {
-            with(binding) {
+            binding.apply {
                 developersName.text = developers.name
                 developersGamesCount.text =
                     root.context.getString(R.string.games_count_value, developers.gamesCount)

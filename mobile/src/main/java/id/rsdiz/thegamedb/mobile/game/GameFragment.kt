@@ -107,7 +107,7 @@ class GameFragment : Fragment(), IOnBackPressed {
     }
 
     override fun onBackPressed(): Boolean {
-        with(binding) {
+        binding.apply {
             return when {
                 searchGame.query.isNotEmpty() -> {
                     searchGame.setQuery("", false)
@@ -147,7 +147,7 @@ class GameFragment : Fragment(), IOnBackPressed {
     }
 
     private fun showLoading(state: Boolean) =
-        with(binding) {
+        binding.apply {
             if (state) {
                 progressBar.visibility = View.VISIBLE
                 fabToTop.visibility = View.GONE

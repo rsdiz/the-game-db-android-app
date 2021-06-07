@@ -69,7 +69,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun populateData(game: Game) {
-        with(binding) {
+        binding.apply {
             supportActionBar?.subtitle = game.name
             game.backgroundImage?.let {
                 Glide.with(root.context)
@@ -125,7 +125,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showLoading(state: Boolean) =
-        with(binding) {
+        binding.apply {
             if (state) {
                 progressBar.visibility = View.VISIBLE
                 appBar.visibility = View.GONE

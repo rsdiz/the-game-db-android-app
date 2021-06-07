@@ -92,7 +92,7 @@ class DevelopersFragment : Fragment() {
     }
 
     private fun showLoading(state: Boolean) =
-        with(binding) {
+        binding.apply {
             if (state) {
                 progressBar.visibility = View.VISIBLE
                 labelError.visibility = View.GONE

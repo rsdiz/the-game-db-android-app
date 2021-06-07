@@ -47,7 +47,7 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemGameListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(game: Game) {
-            with(binding) {
+            binding.apply {
                 gameTitle.text = game.name
                 game.released?.let {
                     val date = it.toDate(FormatPattern.ISO_DATE)
@@ -63,9 +63,9 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
                         .centerCrop()
                         .into(gameImage)
                 }
-                bindGenre(game.genres.split(", ").toTypedArray())
-                bindPlatforms(game.parentPlatforms.split(", ").toTypedArray())
             }
+            bindGenre(game.genres.split(", ").toTypedArray())
+            bindPlatforms(game.parentPlatforms.split(", ").toTypedArray())
         }
 
         private fun bindGenre(genres: Array<String>) {

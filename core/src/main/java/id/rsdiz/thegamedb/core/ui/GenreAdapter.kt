@@ -29,9 +29,8 @@ class GenreAdapter : RecyclerView.Adapter<GenreAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemGenreListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(genre: String) =
-            with(binding) {
-                genreName.text = genre
-            }
+        fun bind(genre: String) {
+            binding.genreName.text = genre
+        }
     }
 }

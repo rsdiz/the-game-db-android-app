@@ -61,7 +61,7 @@ class FavoriteFragment : Fragment() {
         }
 
         favoriteViewModel.favoriteGames.observe(viewLifecycleOwner) { results ->
-            with(binding) {
+            binding.apply {
                 if (results.isNotEmpty()) {
                     rvFavoriteGame.visibility = View.VISIBLE
                     labelEmpty.visibility = View.GONE

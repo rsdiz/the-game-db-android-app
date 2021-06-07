@@ -117,7 +117,7 @@ class DetailDevelopersActivity : AppCompatActivity() {
     }
 
     private fun populateData(data: Developers) {
-        with(binding) {
+        binding.apply {
             supportActionBar?.subtitle = data.name
             if (data.description.isNullOrEmpty()) {
                 developersDescription.visibility = View.GONE
@@ -132,7 +132,7 @@ class DetailDevelopersActivity : AppCompatActivity() {
     }
 
     private fun showLoading(state: Boolean) =
-        with(binding) {
+        binding.apply {
             if (state) {
                 progressBar.visibility = View.VISIBLE
                 appBar.visibility = View.GONE
@@ -147,7 +147,7 @@ class DetailDevelopersActivity : AppCompatActivity() {
         }
 
     private fun showLoadingRv(state: Boolean) =
-        with(binding) {
+        binding.apply {
             if (state) {
                 progressBarRv.visibility = View.VISIBLE
                 labelErrorRv.visibility = View.GONE

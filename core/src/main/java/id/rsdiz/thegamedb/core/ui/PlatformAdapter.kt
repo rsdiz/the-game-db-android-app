@@ -35,7 +35,7 @@ class PlatformAdapter : RecyclerView.Adapter<PlatformAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemPlatformListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(platform: String) {
-            with(binding) {
+            binding.apply {
                 val drawable = when (platform.lowercase()) {
                     Const.PC -> R.drawable.ic_windows
                     Const.XBOX -> R.drawable.ic_xbox
@@ -58,7 +58,7 @@ class PlatformAdapter : RecyclerView.Adapter<PlatformAdapter.ViewHolder>() {
                         platformImage.tooltipText = platform
                     }
                 } else {
-                    platformImage.visibility = View.GONE
+                    root.visibility = View.GONE
                 }
             }
         }
