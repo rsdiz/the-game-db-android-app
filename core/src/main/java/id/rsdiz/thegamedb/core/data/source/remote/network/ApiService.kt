@@ -1,7 +1,9 @@
 package id.rsdiz.thegamedb.core.data.source.remote.network
 
-import id.rsdiz.thegamedb.core.data.source.remote.response.GameResponse
-import id.rsdiz.thegamedb.core.data.source.remote.response.ListGamesResponse
+import id.rsdiz.thegamedb.core.data.source.remote.response.developer.DeveloperResponse
+import id.rsdiz.thegamedb.core.data.source.remote.response.developer.ListDevelopersResponse
+import id.rsdiz.thegamedb.core.data.source.remote.response.games.GameResponse
+import id.rsdiz.thegamedb.core.data.source.remote.response.games.ListGamesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -18,4 +20,10 @@ interface ApiService {
 
     @GET("games")
     suspend fun getGamesByDeveloper(@Query("developers") developers: String): ListGamesResponse
+
+    @GET("developers")
+    suspend fun getListDevelopers(@Query("page_size") pageSize: Int = 30): ListDevelopersResponse
+
+    @GET("developers/{id}")
+    suspend fun getDevelopers(@Path("id") id: Int): DeveloperResponse
 }
