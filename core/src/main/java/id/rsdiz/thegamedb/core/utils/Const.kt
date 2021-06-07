@@ -4,6 +4,7 @@ import id.rsdiz.thegamedb.core.BuildConfig
 
 object Const {
     const val DB_NAME = "Games"
+    const val PASSPHRASE = "TheGameDB"
     const val TIMEOUT = 120L
     const val RAWG_API_BASE_URL = "https://api.rawg.io/api/"
     const val RAWG_API_KEY = BuildConfig.API_KEY
