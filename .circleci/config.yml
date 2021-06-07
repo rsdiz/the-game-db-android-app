@@ -8,8 +8,6 @@ jobs:
   test:
     executor:
       name: android/android-machine
-    environment:
-      RAWG_API_KEY: $RAWG_API_KEY
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -30,8 +28,6 @@ jobs:
 
   build:
     executor: android/android
-    environment:
-      RAWG_API_KEY: $RAWG_API_KEY
     steps:
       # Checkout the code as the first step.
       - checkout
