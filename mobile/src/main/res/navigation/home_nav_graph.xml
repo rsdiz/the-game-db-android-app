@@ -26,6 +26,17 @@
             app:destination="@id/detail_activity" />
     </fragment>
 
+    <fragment
+        android:id="@+id/developer_fragment"
+        android:name="id.rsdiz.thegamedb.mobile.developer.DevelopersFragment"
+        app:moduleName="The_Game_DB.developer"
+        android:label="fragment_developers"
+        tools:layout="@layout/fragment_developers" >
+        <action
+            android:id="@+id/navigate_to_detailDevelopersActivity"
+            app:destination="@id/detail_developers_activity" />
+    </fragment>
+
     <activity
         android:id="@+id/detail_activity"
         android:name="id.rsdiz.thegamedb.mobile.detail.DetailActivity"
@@ -35,5 +46,16 @@
             android:name="gameId"
             android:defaultValue="0"
             app:argType="integer" />
+    </activity>
+
+    <activity
+        android:id="@+id/detail_developers_activity"
+        android:name="id.rsdiz.thegamedb.mobile.developer.DetailDevelopersActivity"
+        app:moduleName="The_Game_DB.developer"
+        android:label="activity_detail_developers"
+        tools:layout="@layout/activity_detail_developers" >
+        <argument
+            android:name="developers"
+            app:argType="id.rsdiz.thegamedb.core.domain.model.Developers" />
     </activity>
 </navigation>
