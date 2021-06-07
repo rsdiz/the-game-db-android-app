@@ -18,7 +18,9 @@ class GameViewModel @Inject constructor(private val gameUseCase: GameUseCase) : 
     val searchResult: LiveData<Resource<List<Game>>> get() = _searchResult
 
     suspend fun searchGames(query: String) {
-        _searchResult.value = gameUseCase.searchGame(query)
+        gameUseCase.searchGame(query).let {
+            if (it is Resource.Success) _searchResult.value = it
+        }
     }
 
     suspend fun insertGame(game: Game) = gameUseCase.insertGame(game)

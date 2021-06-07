@@ -21,7 +21,9 @@ class DeveloperViewModel(
     fun getDetailDeveloper(id: Int) = developersUseCase.getDetailDevelopers(id).asLiveData()
 
     suspend fun getGameByDevelopers(slug: String) {
-        _gameByDeveloperResult.value = gameUseCase.getGamesByDeveloper(slug)
+        gameUseCase.getGamesByDeveloper(slug).let {
+            if (it is Resource.Success) _gameByDeveloperResult.value = it
+        }
     }
 
     suspend fun insertGame(game: Game) = gameUseCase.insertGame(game)
