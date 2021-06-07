@@ -1,0 +1,4 @@
+<resources>
+    <string name="games_count_value">Games count: %1$d</string>
+    <string name="list_game">List Game</string>
+</resources>
