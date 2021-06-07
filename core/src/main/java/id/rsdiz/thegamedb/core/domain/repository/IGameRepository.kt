@@ -13,9 +13,7 @@ interface IGameRepository {
 
     fun setFavoriteGame(game: Game)
 
-    fun getAllDevelopers(): Flow<List<String>>
-
-    fun getGamesByDeveloper(developer: String): Flow<Resource<List<Game>>>
+    suspend fun getGamesByDeveloper(developer: String): Resource<List<Game>>
 
     suspend fun searchGame(query: String): Resource<List<Game>>
 

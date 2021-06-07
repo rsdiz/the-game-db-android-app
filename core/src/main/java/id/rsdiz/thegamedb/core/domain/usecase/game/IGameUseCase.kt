@@ -1,4 +1,4 @@
-package id.rsdiz.thegamedb.core.domain.usecase
+package id.rsdiz.thegamedb.core.domain.usecase.game
 
 import id.rsdiz.thegamedb.core.data.Resource
 import id.rsdiz.thegamedb.core.domain.model.Game
@@ -13,9 +13,7 @@ interface IGameUseCase {
 
     fun setFavoriteGame(game: Game)
 
-    fun getAllDevelopers(): Flow<List<String>>
-
-    fun getGamesByDeveloper(developer: String): Flow<Resource<List<Game>>>
+    suspend fun getGamesByDeveloper(developer: String): Resource<List<Game>>
 
     suspend fun searchGame(query: String): Resource<List<Game>>
 
