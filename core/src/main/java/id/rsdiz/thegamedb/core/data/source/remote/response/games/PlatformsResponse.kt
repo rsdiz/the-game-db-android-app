@@ -1,4 +1,4 @@
-package id.rsdiz.thegamedb.core.data.source.remote.response
+package id.rsdiz.thegamedb.core.data.source.remote.response.games
 
 import com.google.gson.annotations.SerializedName
 
