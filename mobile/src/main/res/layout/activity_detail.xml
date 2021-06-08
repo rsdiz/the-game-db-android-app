@@ -62,271 +62,265 @@
             app:titleTextAppearance="@style/TextAppearance.TheGameDB.Widget.ActionBar.Title" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
-        android:id="@+id/scroll_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_available_platform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/lato"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@string/available_on"
+            android:textAlignment="center"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/game_parent_platform"
+            app:layout_constraintStart_toStartOf="@+id/game_parent_platform"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:viewBindingIgnore="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/game_parent_platform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_available_platform"
+            app:layout_constraintWidth_max="250dp"
+            app:layout_constraintWidth_min="@dimen/layout_platform_size"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_platform_list" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/game_average_playtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:fontFamily="@font/montserrat"
+            android:textAlignment="textStart"
+            android:textColor="?attr/colorDefaultText"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_parent_platform"
+            tools:text="@string/average_playtime" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_about"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/lato"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@string/about"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_average_playtime"
+            tools:viewBindingIgnore="true" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/label_available_platform"
-                android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/game_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/montserrat"
+            android:textAlignment="textStart"
+            android:textColor="?attr/colorDefaultText"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_about"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_platform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/lato"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@string/platforms"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_description"
+            tools:viewBindingIgnore="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/game_platform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/montserrat"
+            android:textAlignment="center"
+            android:textColor="?attr/colorDefaultText"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_platform"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_other_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/lato"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@string/other_information"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_platform"
+            tools:viewBindingIgnore="true" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_other_info">
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/lato"
                 android:padding="@dimen/margin_padding_size_small"
-                android:text="@string/available_on"
-                android:textAlignment="center"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="@dimen/text_size_medium"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/game_parent_platform"
-                app:layout_constraintStart_toStartOf="@+id/game_parent_platform"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:viewBindingIgnore="true" />
+                android:weightSum="1">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/game_parent_platform"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_padding_size_medium"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_available_platform"
-                app:layout_constraintWidth_max="250dp"
-                app:layout_constraintWidth_min="@dimen/layout_platform_size"
-                tools:itemCount="1"
-                tools:listitem="@layout/item_platform_list" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_weight="0.3"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/release_date"
+                    android:textColor="?attr/colorPrimary" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/game_average_playtime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_padding_size_small"
-                android:fontFamily="@font/montserrat"
-                android:textAlignment="textStart"
-                android:textColor="?attr/colorDefaultText"
-                android:textSize="@dimen/text_size_small"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/game_parent_platform"
-                tools:text="@string/average_playtime" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_weight="0.05"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/semicolon"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorPrimary" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/label_about"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/game_release_date"
+                    android:layout_weight="0.65"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="?attr/colorDefaultText"
+                    tools:text="24 May 2000" />
+
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/lato"
                 android:padding="@dimen/margin_padding_size_small"
-                android:text="@string/about"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="@dimen/text_size_large"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/game_average_playtime"
-                tools:viewBindingIgnore="true" />
+                android:weightSum="1">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/game_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/montserrat"
-                android:textAlignment="textStart"
-                android:textColor="?attr/colorDefaultText"
-                android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_about"
-                tools:text="@tools:sample/lorem" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_weight="0.3"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/rating"
+                    android:textColor="?attr/colorPrimary" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/label_platform"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/lato"
-                android:padding="@dimen/margin_padding_size_small"
-                android:text="@string/platforms"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="@dimen/text_size_large"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/game_description"
-                tools:viewBindingIgnore="true" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_weight="0.05"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/semicolon"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorPrimary" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/game_platform"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/montserrat"
-                android:textAlignment="center"
-                android:textColor="?attr/colorDefaultText"
-                android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_platform"
-                tools:text="@tools:sample/lorem" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/label_other_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/lato"
-                android:padding="@dimen/margin_padding_size_small"
-                android:text="@string/other_information"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="@dimen/text_size_large"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/game_platform"
-                tools:viewBindingIgnore="true" />
-
-            <TableLayout
-                android:id="@+id/tableLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_padding_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_other_info">
-
-                <TableRow
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_padding_size_small"
-                    android:weightSum="1">
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.65"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_weight="0.3"
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/game_rating_bar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:stepSize="0.01" />
+
+                    <TextView
+                        android:id="@+id/game_rating_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_padding_size_small"
                         android:fontFamily="@font/montserrat"
-                        android:text="@string/release_date"
-                        android:textColor="?attr/colorPrimary" />
+                        android:text="@string/rating_value"
+                        android:textColor="?attr/colorDefaultText" />
+                </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_weight="0.05"
-                        android:fontFamily="@font/montserrat"
-                        android:text="@string/semicolon"
-                        android:textAlignment="center"
-                        android:textColor="?attr/colorPrimary" />
+            </TableRow>
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/game_release_date"
-                        android:layout_weight="0.65"
-                        android:fontFamily="@font/montserrat"
-                        android:textColor="?attr/colorDefaultText"
-                        tools:text="24 May 2000" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_padding_size_small"
-                    android:weightSum="1">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_weight="0.3"
-                        android:fontFamily="@font/montserrat"
-                        android:text="@string/rating"
-                        android:textColor="?attr/colorPrimary" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_weight="0.05"
-                        android:fontFamily="@font/montserrat"
-                        android:text="@string/semicolon"
-                        android:textAlignment="center"
-                        android:textColor="?attr/colorPrimary" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.65"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatRatingBar
-                            android:id="@+id/game_rating_bar"
-                            style="@style/Widget.AppCompat.RatingBar.Small"
-                            android:stepSize="0.01"
-                            android:numStars="5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/game_rating_num"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_padding_size_small"
-                            android:fontFamily="@font/montserrat"
-                            android:textColor="?attr/colorDefaultText"
-                            android:text="@string/rating_value" />
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_padding_size_small"
-                    android:weightSum="1">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_weight="0.3"
-                        android:fontFamily="@font/montserrat"
-                        android:text="@string/developers"
-                        android:textColor="?attr/colorPrimary" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_weight="0.05"
-                        android:fontFamily="@font/montserrat"
-                        android:text="@string/semicolon"
-                        android:textAlignment="center"
-                        android:textColor="?attr/colorPrimary" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/game_developers"
-                        android:layout_width="match_parent"
-                        android:layout_weight="0.65"
-                        android:fontFamily="@font/montserrat"
-                        android:textColor="?attr/colorDefaultText"
-                        tools:text="Developers Name" />
-
-                </TableRow>
-
-            </TableLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_visit_web"
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_padding_size_medium"
-                android:fontFamily="@font/lato"
-                android:text="@string/visit_official_website"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+                android:padding="@dimen/margin_padding_size_small"
+                android:weightSum="1">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_weight="0.3"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/developers"
+                    android:textColor="?attr/colorPrimary" />
 
-    </ScrollView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_weight="0.05"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/semicolon"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorPrimary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/game_developers"
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.65"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="?attr/colorDefaultText"
+                    tools:text="Developers Name" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_visit_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            android:fontFamily="@font/lato"
+            android:text="@string/visit_official_website"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

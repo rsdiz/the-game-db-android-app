@@ -62,7 +62,7 @@ class GameFragment : Fragment(), IOnBackPressed {
             adapter = gameAdapter
         }
 
-        binding.scrollLayout.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+        binding.content.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
             if (scrollY > oldScrollY + 12) binding.fabToTop.hide()
             if (scrollY < oldScrollY - 12) binding.fabToTop.show()
             if (scrollY == 0) binding.fabToTop.hide()
@@ -70,7 +70,7 @@ class GameFragment : Fragment(), IOnBackPressed {
 
         binding.fabToTop.setOnClickListener {
             val positionY = binding.rvGame.getChildAt(0).y
-            binding.scrollLayout.smoothScrollTo(0, positionY.toInt(), 1000)
+            binding.content.smoothScrollTo(0, positionY.toInt(), 1000)
         }
 
         with(binding.searchGame) {

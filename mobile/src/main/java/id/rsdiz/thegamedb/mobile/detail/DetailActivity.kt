@@ -130,11 +130,11 @@ class DetailActivity : AppCompatActivity() {
                 progressBar.visibility = View.VISIBLE
                 appBar.visibility = View.GONE
                 labelError.visibility = View.GONE
-                scrollLayout.visibility = View.GONE
+                content.visibility = View.GONE
             } else {
                 progressBar.visibility = View.GONE
                 labelError.visibility = View.GONE
-                scrollLayout.visibility = View.VISIBLE
+                content.visibility = View.VISIBLE
                 appBar.visibility = View.VISIBLE
             }
         }

@@ -153,8 +153,8 @@ class DetailDevelopersActivity : AppCompatActivity() {
                 labelErrorRv.visibility = View.GONE
                 rvGame.visibility = View.GONE
             } else {
-                progressBar.visibility = View.GONE
-                labelError.visibility = View.GONE
+                progressBarRv.visibility = View.GONE
+                labelErrorRv.visibility = View.GONE
                 rvGame.visibility = View.VISIBLE
             }
         }
