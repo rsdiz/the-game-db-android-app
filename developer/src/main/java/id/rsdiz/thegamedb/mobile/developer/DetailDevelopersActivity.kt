@@ -161,6 +161,7 @@ class DetailDevelopersActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        binding.rvGame.adapter = null
         _detailDevBinding = null
     }
 }

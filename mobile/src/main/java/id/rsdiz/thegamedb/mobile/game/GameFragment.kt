@@ -17,15 +17,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import id.rsdiz.thegamedb.core.data.Resource
 import id.rsdiz.thegamedb.core.domain.model.Game
 import id.rsdiz.thegamedb.core.ui.GameAdapter
-import id.rsdiz.thegamedb.core.utils.autoCleared
 import id.rsdiz.thegamedb.mobile.databinding.GameFragmentBinding
 import id.rsdiz.thegamedb.mobile.home.IOnBackPressed
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class GameFragment : Fragment(), IOnBackPressed {
-    private var _gameBinding: GameFragmentBinding by autoCleared()
-    private val binding get() = _gameBinding
+    private var _gameBinding: GameFragmentBinding? = null
+    private val binding get() = _gameBinding as GameFragmentBinding
 
     private val gameViewModel: GameViewModel by viewModels()
 
@@ -160,4 +159,14 @@ class GameFragment : Fragment(), IOnBackPressed {
                 fabToTop.visibility = View.VISIBLE
             }
         }
+
+    override fun onDestroyView() {
+        binding.rvGame.adapter = null
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _gameBinding = null
+    }
 }
