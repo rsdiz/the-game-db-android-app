@@ -43,6 +43,10 @@ ext {
     junit4Version = "4.13.2"
     extJunitVersion = "1.1.2"
     espressoVersion = "3.3.0"
+    mockitoVersion = "3.11.0"
+    mockitoInlineVersion = "3.10.0"
+    robolectricVersion = "4.4"
+    archCoreVersion = "2.1.0"
 
     coreDependencies = [
             filetree            : fileTree(dir: "libs", include: ["*.jar"]),
@@ -85,10 +89,15 @@ ext {
     ]
 
     testDependencies = [
-            junit4     : "junit:junit:$junit4Version",
-            extJunit   : "androidx.test.ext:junit:$extJunitVersion",
-            espresso   : "androidx.test.espresso:espresso-core:$espressoVersion",
-            roomTesting: "androidx.room:room-testing:$room_version"
+            junit4       : "junit:junit:$junit4Version",
+            extJunit     : "androidx.test.ext:junit:$extJunitVersion",
+            espresso     : "androidx.test.espresso:espresso-core:$espressoVersion",
+            roomTesting  : "androidx.room:room-testing:$room_version",
+            mockito      : "org.mockito:mockito-core:$mockitoVersion",
+            mockitoInline: "org.mockito:mockito-inline:$mockitoInlineVersion",
+            robolectric  : "org.robolectric:robolectric:$robolectricVersion",
+            archCore     : "androidx.arch.core:core-testing:$archCoreVersion",
+            coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_version"
     ]
 
     debugDependencies = [

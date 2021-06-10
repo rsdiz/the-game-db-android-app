@@ -30,7 +30,12 @@ dependencies {
     implementation coreDependencies.zeteticSqlChiper
     implementation coreDependencies.sqliteKtx
 
+    // Testing
     testImplementation testDependencies.junit4
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoInline
+    testImplementation testDependencies.archCore
+    testImplementation testDependencies.coroutines
 
     debugImplementation debugDependencies.leakCanary
 }

@@ -59,6 +59,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
     dynamicFeatures = [':favorite', ':developer']
 }
 
@@ -73,6 +78,7 @@ dependencies {
 
     implementation coreDependencies.googlePlayCore
 
+    testImplementation testDependencies.robolectric
     androidTestImplementation testDependencies.extJunit
     androidTestImplementation testDependencies.espresso
 }
