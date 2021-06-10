@@ -4,9 +4,11 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'jacoco'
 }
 
-apply from: '../share_dependencies.gradle'
+apply from: "$project.rootDir/share_dependencies.gradle"
+apply from: "$project.rootDir/script_jacoco.gradle"
 
 android {
     compileSdkVersion androidCompileSdkVersion
