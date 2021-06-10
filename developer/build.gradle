@@ -6,7 +6,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
-apply from: '../share_dependencies.gradle'
+apply from: "$project.rootDir/share_dependencies.gradle"
 
 android {
     compileSdkVersion androidCompileSdkVersion
@@ -20,6 +20,21 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        app {
+            dimension "version"
+        }
+        beta {
+            dimension "version"
+            applicationIdSuffix ".beta"
+        }
+        prod {
+            dimension "version"
+            applicationIdSuffix ".prod"
+        }
     }
 
     buildTypes {
