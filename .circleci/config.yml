@@ -19,12 +19,26 @@ jobs:
       - run:
           name: Run Tests
           command: ./gradlew lint test
-      - store_test_results:
-          path: app/build/test-results
+      - run:
+          name: Generate a Test Coverage Report
+          command: ./gradlew connectedCheck
+      - run:
+          name: Generate a Unit Test Report
+          command: ./gradlew testDebugUnitTest
       # Then start the emulator and run the Instrumentation tests!
       - android/start-emulator-and-run-tests:
           test-command: ./gradlew connectedDebugAndroidTest
           system-image: system-images;android-25;google_apis;x86
+      # save the result of a process
+      - store_test_results:
+          path: app/build/test-results
+      - store_test_results:
+          path: app/build/reports/coverage/debug
+          destination: reports
+      # and finally, upload test report
+      - run:
+          name: Upload Test Report
+          command: bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
 
   build:
     executor: android/android
