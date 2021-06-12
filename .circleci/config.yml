@@ -32,12 +32,16 @@ jobs:
       # save the result of a process
       - store_test_results:
           path: core/build/test-results
+          destination: test-results
       - store_test_results:
           path: mobile/build/test-results
+          destination: test-results
       - store_test_results:
           path: core/build/reports/coverage/debug
+          destination: core-reports
       - store_test_results:
           path: mobile/build/reports/coverage/debug
+          destination: mobile-reports
       # and finally, upload test report
       - run:
           name: Upload Test Report
