@@ -11,6 +11,7 @@
   <a href="https://github.com/rsdiz/the-game-db-android-app/"><img alt="Circle CI" src="https://circleci.com/gh/rsdiz/the-game-db-android-app/tree/main.svg?style=shield"></a>
   <a href="https://snyk.io/test/github/rsdiz/the-game-db-android-app"><img alt="Known Vulnerabilities" src="https://snyk.io/test/github/rsdiz/the-game-db-android-app/badge.svg"></a>
   <a href="https://codecov.io/gh/rsdiz/the-game-db-android-app"><img alt="Codecov" src="https://codecov.io/gh/rsdiz/the-game-db-android-app/branch/main/graph/badge.svg"></a>
+  <a href="https://www.codacy.com/gh/rsdiz/the-game-db-android-app/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rsdiz/the-game-db-android-app&amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Grade/953336905755496b97400007f4edb186"></a>
 </p>
 
 ## What is this?
