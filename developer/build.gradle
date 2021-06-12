@@ -22,21 +22,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    flavorDimensions "version"
-    productFlavors {
-        app {
-            dimension "version"
-        }
-        beta {
-            dimension "version"
-            applicationIdSuffix ".beta"
-        }
-        prod {
-            dimension "version"
-            applicationIdSuffix ".prod"
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled false
