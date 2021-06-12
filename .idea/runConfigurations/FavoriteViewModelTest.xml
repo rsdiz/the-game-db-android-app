@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="FavoriteViewModelTest" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
+    <module name="The_Game_DB.favorite" />
+    <shortenClasspath name="MANIFEST" />
+    <useClassPathOnly />
+    <extension name="coverage" runner="jacoco">
+      <pattern>
+        <option name="PATTERN" value="id.rsdiz.thegamedb.mobile.favorite.vm.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="id.rsdiz.thegamedb.mobile.favorite.vm" />
+    <option name="MAIN_CLASS_NAME" value="id.rsdiz.thegamedb.mobile.favorite.vm.FavoriteViewModelTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <option name="PARAMETERS" value="" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <method v="2">
+      <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
