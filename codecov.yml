@@ -1,8 +1,6 @@
 {
   "fixes": [
-      "debugAndroidTest/::core/src/test/java/",
-      "debugAndroidTest/::mobile/src/test/java/"
-#      "/home/runner/work/the-game-db-android-app/the-game-db-android-app>/::"
+      "/home/circleci/::"
   ],
   "codecov": {
     "disable_default_path_fixes": true
