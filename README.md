@@ -14,43 +14,43 @@
   <a href="https://www.codacy.com/gh/rsdiz/the-game-db-android-app/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rsdiz/the-game-db-android-app&amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Grade/953336905755496b97400007f4edb186"></a>
 </p>
 
-## What is this?
+## What is this
 Just a simple project due to finish "Dicoding Menjadi Android Developer Expert (MADE)" Final Submission and try new stuff on Android showing some games fetched from the [RAWG](https://api.rawg.io/docs/) (The Largest Games Database) API.
 
 Feel free to use it just for learning or for your next Android application - I would be pretty honored!
 
 ## Requirements
-- Android Studio
-- JDK 1.8
-- Android SDK
+  - Android Studio
+  - JDK 1.8
+  - Android SDK
 
 ## Features
-- Splash screen
-- Get all games
-- Search games
-- Get all developers
-- See all games by developers
-- Add game to favorite list
+  - Splash screen
+  - Get all games
+  - Search games
+  - Get all developers
+  - See all games by developers
+  - Add game to favorite list
 
 ## Tech Stack
-- **Kotlin**, yes, I love it
-- **Clean Architecture Concepts**
-- **Modularization**
-- **MVVM (Model-View-ViewModel)** Architecture pattern
-- **Navigation Component** to navigate all activity or fragment in whole app
-- **Coroutine Flow**, a stream that produces values asynchronously
-- **Hilt** for dependency injection purposes
-- **Glide** to handles image loading/caching
-- **Mockito** for mock some classes on our tests
-- **Espresso**, for our instrumentation tests
-- **Retrofit** for our HTTP requests
-- **ViewBinding** for more easily write code that interacts with views
-- **SQLCipher** for encryption
-- **CodeCov**, for generating our code coverage in the project
-- **OkHttp** for certificate pinning
-- **R8 with Proguard Rules** for obfuscation
-- **Room** for our local persistence
-- **CircleCI**, for making a full build of our project, as well as run all tests (unit & instrumentation), once we have any push into the repo.
+  - **Kotlin**, yes, I love it
+  - **Clean Architecture Concepts**
+  - **Modularization**
+  - **MVVM (Model-View-ViewModel)** Architecture pattern
+  - **Navigation Component** to navigate all activity or fragment in whole app
+  - **Coroutine Flow**, a stream that produces values asynchronously
+  - **Hilt** for dependency injection purposes
+  - **Glide** to handles image loading/caching
+  - **Mockito** for mock some classes on our tests
+  - **Espresso**, for our instrumentation tests
+  - **Retrofit** for our HTTP requests
+  - **ViewBinding** for more easily write code that interacts with views
+  - **SQLCipher** for encryption
+  - **CodeCov**, for generating our code coverage in the project
+  - **OkHttp** for certificate pinning
+  - **R8 with Proguard Rules** for obfuscation
+  - **Room** for our local persistence
+  - **CircleCI**, for making a full build of our project, as well as run all tests (unit & instrumentation), once we have any push into the repo.
 
 ## Mad Scorecard
 
