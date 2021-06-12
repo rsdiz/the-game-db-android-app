@@ -7,6 +7,9 @@ import java.util.*
  */
 class DataFactory {
 
+    /**
+     * Factory object
+     */
     companion object Factory {
 
         /**

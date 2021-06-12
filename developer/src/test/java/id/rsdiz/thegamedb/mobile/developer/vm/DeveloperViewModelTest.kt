@@ -26,6 +26,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Class for testing [DeveloperViewModel] class
+ */
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class DeveloperViewModelTest {
@@ -62,6 +65,9 @@ class DeveloperViewModelTest {
     @Captor
     private lateinit var captorDeveloper: ArgumentCaptor<Resource<Developers>>
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         val flow: Flow<Resource<List<Developers>>> = flow {
@@ -75,6 +81,9 @@ class DeveloperViewModelTest {
         Mockito.verify(developersUseCase).getDevelopers()
     }
 
+    /**
+     * Function for testing [DeveloperViewModel.getDevelopers] method
+     */
     @Test
     fun getDevelopers() {
         val livedata = developerViewModel.developers
@@ -92,6 +101,9 @@ class DeveloperViewModelTest {
         assertEquals(fakeDevList, captorDevelopers.value.data)
     }
 
+    /**
+     * Function for testing [DeveloperViewModel.getDetailDeveloper] method
+     */
     @Test
     fun getDetailDeveloper() {
         val flow: Flow<Resource<Developers>> = flow {
@@ -117,6 +129,9 @@ class DeveloperViewModelTest {
         assertEquals(fakeDevList[5], captorDeveloper.value.data)
     }
 
+    /**
+     * Function for testing [DeveloperViewModel.getGameByDevelopers] method
+     */
     @Test
     fun getGameByDevelopers() = coroutineScope.runBlockingTest {
         val fakeGame = GameFactory.makeGameList(10)

@@ -20,6 +20,9 @@ import org.junit.runner.RunWith
 import org.mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Class for testing [DevelopersUseCase] class
+ */
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class DevelopersUseCaseTest {
@@ -48,11 +51,17 @@ class DevelopersUseCaseTest {
     @Captor
     private lateinit var captorDeveloper: ArgumentCaptor<Resource<Developers>>
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         developersUseCase = DevelopersUseCase(developerRepository)
     }
 
+    /**
+     * Function for testing [DevelopersUseCase.getDevelopers] method
+     */
     @Test
     fun getDevelopers() = coroutineScope.runBlockingTest {
         val flow: Flow<Resource<List<Developers>>> = flow {
@@ -81,6 +90,9 @@ class DevelopersUseCaseTest {
         )
     }
 
+    /**
+     * Function for testing [DevelopersUseCase.getDetailDevelopers] method
+     */
     @Test
     fun getDetailDevelopers() = coroutineScope.runBlockingTest {
         val flow: Flow<Resource<Developers>> = flow {

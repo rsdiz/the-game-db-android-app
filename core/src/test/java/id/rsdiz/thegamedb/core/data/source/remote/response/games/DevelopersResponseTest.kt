@@ -5,8 +5,15 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+/**
+ * Class for testing [DevelopersResponse] class
+ */
 @RunWith(JUnit4::class)
 class DevelopersResponseTest {
+
+    /**
+     * Test an equation for object symmetry
+     */
     @Test
     fun testEqualsSymetric() {
         val developersResponse1 = DevelopersResponse(

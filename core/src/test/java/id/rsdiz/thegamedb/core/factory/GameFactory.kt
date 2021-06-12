@@ -4,8 +4,22 @@ import id.rsdiz.thegamedb.core.data.source.local.entity.GameEntity
 import id.rsdiz.thegamedb.core.data.source.remote.response.games.*
 import id.rsdiz.thegamedb.core.domain.model.Game
 
+/**
+ * This class is used to generate game objects for usage on tests
+ *
+ */
 class GameFactory {
+
+    /**
+     * Factory object
+     *
+     */
     companion object Factory {
+
+        /**
+         * Returns a Game
+         *
+         */
         fun makeGame(): Game =
             Game(
                 DataFactory.randomInt(),
@@ -23,6 +37,10 @@ class GameFactory {
                 DataFactory.randomBoolean()
             )
 
+        /**
+         * Returns a list of Game
+         *
+         */
         fun makeGameList(count: Int): List<Game> {
             val gameList = mutableListOf<Game>()
             repeat(count) {
@@ -31,6 +49,10 @@ class GameFactory {
             return gameList
         }
 
+        /**
+         * Returns a GameEntity
+         *
+         */
         fun makeGameEntity(): GameEntity =
             GameEntity(
                 DataFactory.randomInt(),
@@ -48,6 +70,10 @@ class GameFactory {
                 DataFactory.randomBoolean()
             )
 
+        /**
+         * Returns list of GameEntity
+         *
+         */
         fun makeGameEntities(count: Int): List<GameEntity> {
             val gameEntities = mutableListOf<GameEntity>()
             repeat(count) {
@@ -56,6 +82,10 @@ class GameFactory {
             return gameEntities
         }
 
+        /**
+         * Returns a GameResponse
+         *
+         */
         fun makeGameResponse(): GameResponse =
             GameResponse(
                 DataFactory.randomInt(),
@@ -92,6 +122,10 @@ class GameFactory {
                 )
             )
 
+        /**
+         * Returns list of GameResponse
+         *
+         */
         fun makeGameResponseList(count: Int): List<GameResponse> {
             val gameResponseList = mutableListOf<GameResponse>()
             repeat(count) {

@@ -23,6 +23,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Class for testing [GameViewModel] class
+ */
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class GameViewModelTest {
@@ -46,6 +49,9 @@ class GameViewModelTest {
     @Captor
     private lateinit var captorGames: ArgumentCaptor<Resource<List<Game>>>
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         val flow: Flow<Resource<List<Game>>> = flow {
@@ -60,6 +66,9 @@ class GameViewModelTest {
         Mockito.verify(gameUseCase).getGames()
     }
 
+    /**
+     * Function for testing [GameViewModel.games] variable
+     */
     @Test
     fun getGames() = coroutineScope.runBlockingTest {
         val gameList = gameViewModel.games
@@ -77,6 +86,9 @@ class GameViewModelTest {
         assertEquals(fakeGameList, captorGames.value.data)
     }
 
+    /**
+     * Function for testing [GameViewModel.searchGames] method
+     */
     @Test
     fun searchGames() = coroutineScope.runBlockingTest {
         var expected = fakeGameList.filter { game -> game == fakeGame1 }

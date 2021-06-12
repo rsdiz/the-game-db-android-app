@@ -9,15 +9,24 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+/**
+ * Class for testing [DevelopersMapper] class
+ */
 @RunWith(JUnit4::class)
 class DevelopersMapperTest {
     private lateinit var developersMapper: DevelopersMapper
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         developersMapper = DevelopersMapper()
     }
 
+    /**
+     * Function for testing [DevelopersMapper.mapFromEntity] method
+     */
     @Test
     fun mapFromEntity() {
         val developersEntity = DevelopersFactory.makeDevelopersEntity()
@@ -26,6 +35,9 @@ class DevelopersMapperTest {
         assertDevelopersDataEquality(developersEntity, developers)
     }
 
+    /**
+     * Function for testing [DevelopersMapper.mapToEntity] method
+     */
     @Test
     fun mapToEntity() {
         val developers = DevelopersFactory.makeDevelopers()
@@ -34,6 +46,9 @@ class DevelopersMapperTest {
         assertDevelopersDataEquality(developersEntity, developers)
     }
 
+    /**
+     * Function for testing [DevelopersMapper.mapFromEntities] method
+     */
     @Test
     fun mapFromEntities() {
         val developersEntities = DevelopersFactory.makeDevelopersEntities(2)

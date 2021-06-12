@@ -9,15 +9,24 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+/**
+ * Class for testing [DevelopersRemoteMapper] class
+ */
 @RunWith(JUnit4::class)
 class DevelopersRemoteMapperTest {
     private lateinit var developersRemoteMapper: DevelopersRemoteMapper
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         developersRemoteMapper = DevelopersRemoteMapper()
     }
 
+    /**
+     * Function for testing [DevelopersRemoteMapper.mapRemoteToEntity] method
+     */
     @Test
     fun mapRemoteToEntity() {
         val developerRemote = DevelopersFactory.makeDevelopersResponse()
@@ -26,6 +35,9 @@ class DevelopersRemoteMapperTest {
         assertDevelopersDataEquality(developerRemote, developerEntity)
     }
 
+    /**
+     * Function for testing [DevelopersRemoteMapper.mapRemoteToEntities] method
+     */
     @Test
     fun mapRemoteToEntities() {
         val developersRemoteList = DevelopersFactory.makeDevelopersResponseList(2)

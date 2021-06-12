@@ -20,6 +20,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Class for testing [FavoriteViewModel] class
+ */
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class FavoriteViewModelTest {
@@ -42,6 +45,9 @@ class FavoriteViewModelTest {
     @Captor
     private lateinit var captorGames: ArgumentCaptor<List<Game>>
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         val flow: Flow<List<Game>> = flow { emit(favoritedGames) }
@@ -51,6 +57,9 @@ class FavoriteViewModelTest {
         Mockito.verify(gameUseCase).getFavoriteGames()
     }
 
+    /**
+     * Function for testing [FavoriteViewModel.favoriteGames] variable
+     */
     @Test
     fun getFavoriteGames() {
         val liveData = favoriteViewModel.favoriteGames

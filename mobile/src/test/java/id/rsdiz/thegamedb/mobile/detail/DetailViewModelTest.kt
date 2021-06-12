@@ -23,6 +23,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Class for testing [DetailViewModel] class
+ */
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class DetailViewModelTest {
@@ -44,11 +47,17 @@ class DetailViewModelTest {
     @Captor
     private lateinit var captorGames: ArgumentCaptor<Resource<Game>>
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         detailViewModel = DetailViewModel(gameUseCase)
     }
 
+    /**
+     * Function for testing [DetailViewModel.getDetailGame] method
+     */
     @Test
     fun getDetailGame() = coroutineScope.runBlockingTest {
         val flow: Flow<Resource<Game>> = flow {

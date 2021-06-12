@@ -9,15 +9,24 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+/**
+ * Class for testing [GameMapper] class
+ */
 @RunWith(JUnit4::class)
 class GameMapperTest {
     private lateinit var gameMapper: GameMapper
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         gameMapper = GameMapper()
     }
 
+    /**
+     * Function for testing [GameMapper.mapFromEntity] method
+     */
     @Test
     fun mapFromEntity() {
         val gameEntity = GameFactory.makeGameEntity()
@@ -26,6 +35,9 @@ class GameMapperTest {
         assertGameDataEquality(gameEntity, game)
     }
 
+    /**
+     * Function for testing [GameMapper.mapToEntity] method
+     */
     @Test
     fun mapToEntity() {
         val game = GameFactory.makeGame()
@@ -34,6 +46,9 @@ class GameMapperTest {
         assertGameDataEquality(gameEntity, game)
     }
 
+    /**
+     * Function for testing [GameMapper.mapFromEntities] method
+     */
     @Test
     fun mapFromEntities() {
         val gameEntities = GameFactory.makeGameEntities(2)

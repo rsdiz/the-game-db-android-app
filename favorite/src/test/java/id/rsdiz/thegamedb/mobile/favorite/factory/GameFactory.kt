@@ -2,9 +2,18 @@ package id.rsdiz.thegamedb.mobile.favorite.factory
 
 import id.rsdiz.thegamedb.core.domain.model.Game
 
+/**
+ * This class is used to generate game objects for usage on tests
+ *
+ */
 class GameFactory {
+
+    /**
+     * Factory object
+     *
+     */
     companion object Factory {
-        fun makeGame(): Game =
+        private fun makeGame(): Game =
             Game(
                 DataFactory.randomInt(),
                 DataFactory.randomUuid(),
@@ -21,6 +30,10 @@ class GameFactory {
                 DataFactory.randomBoolean()
             )
 
+        /**
+         * Returns a list of Game
+         *
+         */
         fun makeGameList(count: Int): List<Game> {
             val gameList = mutableListOf<Game>()
             repeat(count) {

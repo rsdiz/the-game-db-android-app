@@ -2,6 +2,9 @@ package id.rsdiz.thegamedb.core.utils
 
 import id.rsdiz.thegamedb.core.BuildConfig
 
+/**
+ * Object containing all fixed value in whole projects
+ */
 object Const {
     const val DB_NAME = "Games"
     const val PASSPHRASE = "TheGameDB"

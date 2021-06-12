@@ -24,6 +24,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Class for testing [GameUseCase] class
+ */
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class GameUseCaseTest {
@@ -58,11 +61,17 @@ class GameUseCaseTest {
     @Captor
     private lateinit var captorGamesList: ArgumentCaptor<List<Game>>
 
+    /**
+     * Run before start testing
+     */
     @Before
     fun setUp() {
         gameUseCase = GameUseCase(gameRepository)
     }
 
+    /**
+     * Function for testing [GameUseCase.getGames] method
+     */
     @Test
     fun getGames() = coroutineScope.runBlockingTest {
         val flow: Flow<Resource<List<Game>>> = flow {
@@ -91,6 +100,9 @@ class GameUseCaseTest {
         )
     }
 
+    /**
+     * Function for testing [GameUseCase.getFavoriteGames] method
+     */
     @Test
     fun getFavoriteGames() = coroutineScope.runBlockingTest {
         val favoritedGame = fakeGameList.filter { game -> game.isFavorite }
@@ -109,6 +121,9 @@ class GameUseCaseTest {
         )
     }
 
+    /**
+     * Function for testing [GameUseCase.getDetailGame] method
+     */
     @Test
     fun getDetailGame() = coroutineScope.runBlockingTest {
         val flow: Flow<Resource<Game>> = flow {
@@ -137,6 +152,9 @@ class GameUseCaseTest {
         )
     }
 
+    /**
+     * Function for testing [GameUseCase.getGamesByDeveloper] method
+     */
     @Test
     fun getGamesByDeveloper() = coroutineScope.runBlockingTest {
         val developer = fakeGame.developers
