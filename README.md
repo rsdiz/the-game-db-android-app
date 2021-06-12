@@ -10,6 +10,7 @@
   <a href="https://github.com/rsdiz/the-game-db-android-app/"><img alt="Star" src="https://img.shields.io/github/stars/rsdiz/the-game-db-android-app"></a>
   <a href="https://github.com/rsdiz/the-game-db-android-app/"><img alt="Circle CI" src="https://circleci.com/gh/rsdiz/the-game-db-android-app/tree/main.svg?style=shield"></a>
   <a href="https://snyk.io/test/github/rsdiz/the-game-db-android-app"><img alt="Known Vulnerabilities" src="https://snyk.io/test/github/rsdiz/the-game-db-android-app/badge.svg"></a>
+  <a href="https://codecov.io/gh/rsdiz/the-game-db-android-app"><img alt="Codecov" src="https://codecov.io/gh/rsdiz/the-game-db-android-app/branch/main/graph/badge.svg"></a>
 </p>
 
 ## What is this?
@@ -39,9 +40,12 @@ Feel free to use it just for learning or for your next Android application - I w
 - **Coroutine Flow**, a stream that produces values asynchronously
 - **Hilt** for dependency injection purposes
 - **Glide** to handles image loading/caching
+- **Mockito** for mock some classes on our tests
+- **Espresso**, for our instrumentation tests
 - **Retrofit** for our HTTP requests
 - **ViewBinding** for more easily write code that interacts with views
 - **SQLCipher** for encryption
+- **CodeCov**, for generating our code coverage in the project
 - **OkHttp** for certificate pinning
 - **R8 with Proguard Rules** for obfuscation
 - **Room** for our local persistence
@@ -59,4 +63,4 @@ In case of any questions or reports the bug, feel free to open an issue, I will 
 
 ## License
 
-All code licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php). You are free to do whatever you want with this piece of code. Check it out the LICENSE.md file for more info.
+All code licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php). You are free to do whatever you want with this piece of code. Check it out the [LICENSE](LICENSE) file for more info.
