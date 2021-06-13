@@ -36,10 +36,10 @@ jobs:
       - store_test_results:
           path: mobile/build/test-results
           destination: test-results
-      - store_test_results:
+      - store_artifacts:
           path: core/build/reports/coverage/debug
           destination: core-reports
-      - store_test_results:
+      - store_artifacts:
           path: mobile/build/reports/coverage/debug
           destination: mobile-reports
       # and finally, upload test report
