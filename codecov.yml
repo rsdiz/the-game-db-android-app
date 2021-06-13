@@ -1,6 +1,7 @@
 {
   "fixes": [
-      "/home/circleci/::"
+      "core/src/main/::/home/circleci/project/core/src/main/",
+      "mobile/src/main/::/home/circleci/project/mobile/src/main/"
   ],
   "codecov": {
     "disable_default_path_fixes": true
