@@ -6,7 +6,7 @@
 [![Kotlin](https://img.shields.io/badge/kotlin-1.5.10-blue.svg)](http://kotlinlang.org)
 [![Gradle](https://img.shields.io/badge/gradle-4.2.1-green.svg)](https://developer.android.com/studio/releases/gradle-plugin)
 [![Star](https://img.shields.io/github/stars/rsdiz/the-game-db-android-app)](https://github.com/rsdiz/the-game-db-android-app/)
-[![Circle CI](https://circleci.com/gh/rsdiz/the-game-db-android-app/tree/main.svg?style=shield)](https://github.com/rsdiz/the-game-db-android-app/)
+[![Circle CI](https://circleci.com/gh/rsdiz/the-game-db-android-app/tree/main.svg?style=shield)](https://circleci.com/gh/rsdiz/the-game-db-android-app)
 [![Known Vulnerabilities](https://snyk.io/test/github/rsdiz/the-game-db-android-app/badge.svg)](https://snyk.io/test/github/rsdiz/the-game-db-android-app)
 [![Code Coverage](https://codecov.io/gh/rsdiz/the-game-db-android-app/branch/main/graph/badge.svg)](https://codecov.io/gh/rsdiz/the-game-db-android-app)
 [![Codacy](https://app.codacy.com/project/badge/Grade/953336905755496b97400007f4edb186)](https://www.codacy.com/gh/rsdiz/the-game-db-android-app/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rsdiz/the-game-db-android-app&amp;utm_campaign=Badge_Grade)
@@ -19,39 +19,39 @@ Feel free to use it just for learning or for your next Android application - I w
 
 ## Requirements
 
-- Android Studio
-- JDK 1.8
-- Android SDK
+1. Android Studio
+2. JDK 1.8
+3. Android SDK
 
 ## Features
 
-- Splash screen
-- Get all games
-- Search games
-- Get all developers
-- See all games by developers
-- Add game to favorite list
+1. Splash screen
+2. Get all games
+3. Search games
+4. Get all developers
+5. See all games by developers
+6. Add game to favorite list
 
 ## Tech Stack
 
-- **Kotlin**, yes, I love it
-- **Clean Architecture Concepts**
-- **Modularization**
-- **MVVM (Model-View-ViewModel)** Architecture pattern
-- **Navigation Component** to navigate all activity or fragment in whole app
-- **Coroutine Flow**, a stream that produces values asynchronously
-- **Hilt** for dependency injection purposes
-- **Glide** to handles image loading/caching
-- **Mockito** for mock some classes on our tests
-- **Espresso**, for our instrumentation tests
-- **Retrofit** for our HTTP requests
-- **ViewBinding** for more easily write code that interacts with views
-- **SQLCipher** for encryption
-- **CodeCov**, for generating our code coverage in the project
-- **OkHttp** for certificate pinning
-- **R8 with Proguard Rules** for obfuscation
-- **Room** for our local persistence
-- **CircleCI**, for making a full build of our project, as well as run all tests (unit & instrumentation), once we have any push into the repo.
+1. **Kotlin**, yes, I love it
+2. **Clean Architecture Concepts**
+3. **Modularization**
+4. **MVVM (Model-View-ViewModel)** Architecture pattern
+5. **Navigation Component** to navigate all activity or fragment in whole app
+6. **Coroutine Flow**, a stream that produces values asynchronously
+7. **Hilt** for dependency injection purposes
+8. **Glide** to handles image loading/caching
+9. **Mockito** for mock some classes on our tests
+10. **Espresso**, for our instrumentation tests
+11. **Retrofit** for our HTTP requests
+12. **ViewBinding** for more easily write code that interacts with views
+13. **SQLCipher** for encryption
+14. **CodeCov**, for generating our code coverage in the project
+15. **OkHttp** for certificate pinning
+16. **R8 with Proguard Rules** for obfuscation
+17. **Room** for our local persistence
+18. **CircleCI**, for making a full build of our project, as well as run all tests (unit & instrumentation), once we have any push into the repo.
 
 ## Mad Scorecard
 
